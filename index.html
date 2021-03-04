@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+      var mail = prompt('Inserisci la tua mail: ');
+      var listaMail = ['prova@mail.com', 'prova2@mail.com', 'prova3@mail.com', 'prova4@mail.com', 'prova5@mail.com', 'martino@mail.com'];
+
+      var min = 1;
+      var max = 6 - min;
+      var player = Math.floor(Math.random() * (max + 1) + min);
+      var computer = Math.floor(Math.random() * (max + 1) + min);
+      var endGame = 'Il dado è tratto!';
+
+      function dadi() {
+        console.log(endGame);
+        console.log('Player gioca: ' + player);
+        console.log('Computer gioca: ' + computer);
+
+        if (player > computer) {
+          endGame = 'Hai vinto!!';
+        }
+        else if (player < computer) {
+          endGame = 'Hai perso!!';
+        }
+        else{
+          endGame = 'Pareggio!!';
+        }
+        console.log(endGame);
+      }
+
+      for (var i = 0; i < listaMail.length; i++) {
+        if(listaMail[i] === mail){
+          console.log('Email corretta, puoi giocare!');
+          i = listaMail.length;
+          dadi();
+        }
+        else if(i == (listaMail.length - 1)){
+          console.log('Email errata, non puoi giocare!');
+        }
+      }
+    </script>
+  </body>
+</html>
